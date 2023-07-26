@@ -1,0 +1,13 @@
+services:
+  server:
+    build: ./srcs
+    ports:
+      - '42069:25565'
+    container_name: mc_server
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: ./volume/server
+        target: /mcserver
+    stdin_open: true
+    tty: true
